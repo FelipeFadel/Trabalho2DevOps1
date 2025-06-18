@@ -1,0 +1,31 @@
+CREATE DATABASE hadiodb;
+
+CREATE USER 'hadiouser'@'%' IDENTIFIED BY 'user123';
+
+GRANT ALL PRIVILEGES ON hadiodb.* TO 'hadiouser'@'%';
+
+USE hadiodb;
+
+CREATE TABLE employees (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    salary INT(10) NOT NULL,
+    quantidade INT NOT NULL
+);
+
+CREATE TABLE produtos (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(255) NOT NULL,
+    imagem_url VARCHAR(255) NOT NULL,
+    preco DECIMAL(10, 2) NOT NULL
+);
+
+CREATE TABLE logs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    acao VARCHAR(255) NOT NULL,
+    detalhes TEXT,
+    data_hora DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+
